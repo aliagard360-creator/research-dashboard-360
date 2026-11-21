@@ -280,7 +280,7 @@ export function usersPage(user, q) {
   const label = { name: "Name", position: "Position", school_id: "School", photo: "Photo" };
   const shown = (k, v) => k === "school_id" ? esc(db.school(v)?.name || "District Office") : k === "photo" ? (v ? `<img src="${esc(v)}" alt="New photo" style="width:44px;height:44px;border-radius:50%;object-fit:cover;vertical-align:middle">` : "Remove photo") : esc(v);
   const current = (u, k) => k === "photo" ? (u.photo ? `<img src="${esc(u.photo)}" alt="Current photo" style="width:44px;height:44px;border-radius:50%;object-fit:cover;vertical-align:middle">` : "No photo") : shown(k, u[k]);
-  const roleOptions = Object.entries(ROLES).filter(([k]) => superA || ["teacher", "evaluator"].includes(k));
+  const roleOptions = Object.entries(ROLES).filter(([k]) => (superA || ["teacher", "evaluator"].includes(k)) && !(db.cloudMode && k === "superadmin"));
   return {
     title: "User and Role Management",
     desc: "Approve registrations, create staff accounts, change roles and reset passwords.",
@@ -307,7 +307,7 @@ export function usersPage(user, q) {
       </tbody></table></div>` : `<div class="empty"><div class="ic">${icon("users")}</div><h3>${role === "pending" ? "No new accounts waiting" : role === "returned" ? "No returned registrations" : "No accounts in this group"}</h3><p>Create staff accounts with the button above. Teachers register from the public home page.</p></div>`}</section>`,
     bind(root) {
       root.querySelector("[data-create]").addEventListener("click", async () => {
-        const r = await modal({ title: "Create an account", wide: true, confirm: "Create account", body: "The person signs in with the email or username and this temporary password, then must choose their own password.", fields: [
+        const r = await modal({ title: db.cloudMode ? "Invite someone" : "Create an account", wide: true, confirm: db.cloudMode ? "Send invitation" : "Create account", body: db.cloudMode ? "Enter their email and role. They then register on this website with that same email and choose their own password. Their role is applied automatically, with no approval step." : "The person signs in with the email or username and this temporary password, then must choose their own password.", fields: [
           { name: "name", label: "Full name", required: true, span: true },
           { name: "email", label: "Email", type: "email", required: db.cloudMode }, ...(db.cloudMode ? [] : [{ name: "username", label: "Username (optional)" }]),
           { name: "role", label: "Role", type: "select", value: "evaluator", options: roleOptions.map(([v, l]) => ({ value: v, label: l })) },
