@@ -3,8 +3,8 @@
 // Connected mode: paste the two values from Supabase → Project Settings → API. The anon (public) key is
 // safe to publish: the database's row-level security decides what each person can see and change.
 export const CONFIG = {
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://sczkinckkoneyfviiwso.supabase.co",
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjemtpbmNra29uZXlmdmlpd3NvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUyNTAwMzUsImV4cCI6MjExMDgyNjAzNX0.sckgCYzi-eAeaREI68EpmCbW5kOTP_Vm8AbKxetqPWQ",
   SUPERADMIN_EMAIL: "aliagard360@gmail.com",
   DISTRICT: "Schools District of Aliaga",
   DIVISION: "Schools Division Office of Nueva Ecija",
