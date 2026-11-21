@@ -496,7 +496,7 @@ export function helpPage(portal) {
   return {
     title: t ? "Help and User Guide" : "Help and Documentation",
     html: `<section class="card stack" style="max-width:900px">${items.map(([h, b]) => `<details class="review-block" open><summary style="cursor:pointer;font-weight:700">${esc(h)}</summary><p class="small" style="margin-top:8px">${esc(b)}</p></details>`).join("")}
-      <div class="notice">${icon("info")}<span>Need help? Contact the District Research Coordinator, ${esc("Schools District of Aliaga")}.</span></div></section>`,
+      ${t ? `<a class="btn btn-ink" href="#/guide" style="justify-self:start">${icon("help")}Open the full User Guide</a>` : ""}<div class="notice">${icon("info")}<span><a href="#/privacy">Data Privacy Notice</a> · Need help? Contact the District Research Coordinator, ${esc("Schools District of Aliaga")}.</span></div></section>`,
   };
 }
 

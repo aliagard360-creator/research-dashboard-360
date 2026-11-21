@@ -130,7 +130,7 @@ export function homeHtml(user, content, { preview = false } = {}) {
       <p class="small">SDO Nueva Ecija · DepEd Region III</p></div>
     <div><h4>Portals</h4><a href="#/login/teacher">Teacher sign in</a><a href="#/register">Create an account</a><a href="#/login/admin">Administrator sign in</a></div>
     <div><h4>Explore</h4><a href="#/schools">School directory</a>${CATEGORIES.map((ct) => `<a href="#/category/${ct.id}">${esc(ct.name)}</a>`).join("")}</div>
-    <div><h4>Help</h4>${c.contact?.email ? `<a href="mailto:${esc(c.contact.email)}">${esc(c.contact.email)}</a>` : ""}<span>${esc(c.contact?.office || "District Research Office")}</span><span class="small">Personal data is handled in line with the Data Privacy Act of 2012.</span></div>
+    <div><h4>Help</h4>${c.contact?.email ? `<a href="mailto:${esc(c.contact.email)}">${esc(c.contact.email)}</a>` : ""}<span>${esc(c.contact?.office || "District Research Office")}</span><a href="#/guide">User guide for teachers</a><a href="#/privacy">Data Privacy Notice</a><span class="small">Personal data is handled in line with the Data Privacy Act of 2012.</span></div>
   </div><div class="inner ft-base"><span>© ${new Date().getFullYear()} Schools District of Aliaga</span><span>One Platform. One Dashboard. One Research Ecosystem.</span></div></footer>`;
 }
 

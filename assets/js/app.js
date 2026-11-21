@@ -13,6 +13,7 @@ import { adminDashboard, analyticsPage, queuePage, evaluationPage, workflowPage,
 import { cmsPage } from "./cms.js";
 import { categoryPage, publicCategoryHtml } from "./category.js";
 import { installUx, afterNavigate } from "./ux.js";
+import { privacyPage, guidePage } from "./info.js";
 
 const app = document.getElementById("app");
 if (window.__rd360Framed) throw new Error("RESEARCH DASHBOARD 360 cannot be shown inside another website.");
@@ -54,6 +55,10 @@ function render() {
     const cp = categoryPage(null, user, page === "dashboard" ? "" : page);
     if (!cp) { location.hash = "#/"; return; }
     return paint(banner() + publicCategoryHtml(user, cp), (r) => cp.bind(r), `${cp.title} — RESEARCH DASHBOARD 360`);
+  }
+  if (seg === "privacy" || seg === "guide") {
+    const ip = seg === "privacy" ? privacyPage() : guidePage(user);
+    return paint(banner() + publicSchoolHtml(user, ip), (r) => ip.bind(r), `${ip.title} — RESEARCH DASHBOARD 360`);
   }
   if (seg === "register") return paint(banner() + registerPage(), bindRegister, "Create an account");
   if (seg === "pending") {
@@ -323,7 +328,7 @@ function registerPage() {
         ${pwField("password", "Password", "new-password", "At least 8 characters, with letters and numbers.")}
         ${pwField("password2", "Confirm password", "new-password")}
       </div>
-      <label class="row small" style="align-items:flex-start;flex-wrap:nowrap"><input type="checkbox" name="consent" style="margin-top:2px"><span>I agree that my personal information will be processed for district research management in line with the Data Privacy Act of 2012.</span></label>
+      <label class="row small" style="align-items:flex-start;flex-wrap:nowrap"><input type="checkbox" name="consent" style="margin-top:2px"><span>I agree that my personal information will be processed for district research management in line with the Data Privacy Act of 2012, as explained in the <a href="#/privacy" target="_blank" rel="noopener">Data Privacy Notice</a>.</span></label>
       <button class="btn btn-ink">Create account</button>
     </form>
     <p class="small muted">Already registered? <a href="#/login/teacher">Sign in</a></p>
