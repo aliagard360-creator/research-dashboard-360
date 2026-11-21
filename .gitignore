@@ -1,0 +1,22 @@
+# Never upload personal data, backups or secrets to the public repository.
+*.csv
+*.xlsx
+*.xls
+*.json.bak
+*backup*
+*export*
+*.sql
+*.dump
+.env
+.env.*
+*.pem
+*.key
+secrets/
+data/
+uploads/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# The database script holds rules only, no data; keep it with the code.
+!supabase/schema.sql

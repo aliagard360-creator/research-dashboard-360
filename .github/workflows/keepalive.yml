@@ -1,0 +1,21 @@
+# Keeps the free Supabase project awake (free projects pause after about a week without activity).
+# Needs two repository secrets: SUPABASE_URL and SUPABASE_ANON_KEY (both public values).
+name: Keep database awake
+on:
+  schedule:
+    - cron: "17 3 */3 * *"   # every 3 days, 11:17 Philippine time
+  workflow_dispatch:
+permissions: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read one school from the public directory
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$URL" ] || [ -z "$KEY" ]; then echo "Secrets not set yet; skipping."; exit 0; fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" "$URL/rest/v1/schools?select=id&limit=1" -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
+          echo "Database answered with HTTP $code"
+          test "$code" = "200"
