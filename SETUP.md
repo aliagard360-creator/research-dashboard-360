@@ -15,7 +15,7 @@ Total time: about 30 minutes. Cost: free.
 
 ## Part 2: GitHub (you, then Claude)
 
-1. Go to **github.com/signup** and sign up with aliagard360@gmail.com. Suggested username: `aliagard360`.
+1. Go to **github.com/signup** and sign up with aliagard360@gmail.com. Username: `aliagard360-creator`.
 2. Verify the email GitHub sends.
 3. On this computer, sign the GitHub CLI in to that account (it opens the browser):
    ```
@@ -26,7 +26,7 @@ Total time: about 30 minutes. Cost: free.
 When you say **go**, Claude creates the public repository `research-dashboard-360`, uploads the site,
 and turns on GitHub Pages. The site address will be:
 
-**https://aliagard360.github.io/research-dashboard-360/**
+**https://aliagard360-creator.github.io/research-dashboard-360/**
 
 ## Part 3: Supabase (you)
 
@@ -39,8 +39,8 @@ and turns on GitHub Pages. The site address will be:
 3. When the project is ready, open **SQL Editor → New query**, paste the whole content of
    `supabase/schema.sql`, and click **Run**. You should see "Success. No rows returned".
 4. Open **Authentication → URL Configuration**
-   - Site URL: `https://aliagard360.github.io/research-dashboard-360/`
-   - Redirect URLs: add `https://aliagard360.github.io/research-dashboard-360/` and `http://localhost:5360/`
+   - Site URL: `https://aliagard360-creator.github.io/research-dashboard-360/`
+   - Redirect URLs: add `https://aliagard360-creator.github.io/research-dashboard-360/` and `http://localhost:5360/`
 5. Open **Authentication → Sign In / Providers → Email** and make sure **Confirm email** is ON.
 6. Open **Project Settings → API** (or **Data API**) and copy:
    - **Project URL** (looks like `https://abcdxyz.supabase.co`)
