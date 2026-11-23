@@ -1,8 +1,8 @@
 // Home Page Editor (Website Content Management) for administrators.
-import { icon } from "./icons.js";
-import { db, SECTION_LABELS, CONTENT_TYPES, ITEM_CATEGORIES } from "./store.js";
-import { esc, fmtDate, fmtDateTime, relTime, toast, modal, emptyState } from "./ui.js";
-import { safeImg, safeUrl, fbEmbed } from "./home.js";
+import { icon } from "./icons.js?v=202611230828";
+import { db, SECTION_LABELS, CONTENT_TYPES, ITEM_CATEGORIES } from "./store.js?v=202611230828";
+import { esc, fmtDate, fmtDateTime, relTime, toast, modal, emptyState } from "./ui.js?v=202611230828";
+import { safeImg, safeUrl, fbEmbed } from "./home.js?v=202611230828";
 
 const fire = () => window.dispatchEvent(new Event("rd360:render"));
 const clone = (o) => JSON.parse(JSON.stringify(o));

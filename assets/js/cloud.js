@@ -1,7 +1,7 @@
 // Connected mode: keeps the app's in-memory records in sync with Supabase.
 // Reads what the signed-in person may see, sends each change back, and listens for live updates.
 // Every rule is enforced again by the database (see supabase/schema.sql), so the browser can't cheat.
-import { CONFIG } from "./config.js";
+import { CONFIG } from "./config.js?v=202611230828";
 
 let sb = null;           // Supabase client
 let snap = {};           // last synced copy of each row, by collection

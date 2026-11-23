@@ -1,19 +1,19 @@
 // RESEARCH DASHBOARD 360 — router, splash, sign-in, setup and registration.
-import { PREVIEW_MODE, CLOUD, CONFIG } from "./config.js";
-import { icon } from "./icons.js";
-import { db, passwordProblem } from "./store.js";
-import { esc, toast, modal, attachStrength } from "./ui.js";
-import { shell, bindShell, LOGO } from "./shell.js";
-import { homeHtml, bindHome } from "./home.js";
-import { projectsPage, projectDetail, repositoryPage, notificationsPage, calendarPage, settingsPage, helpPage } from "./pages.js";
-import { profilePage } from "./profile.js";
-import { schoolDirectory, schoolPage, publicSchoolHtml } from "./school.js";
-import { teacherDashboard, wizardPage } from "./teacher.js";
-import { adminDashboard, analyticsPage, queuePage, evaluationPage, workflowPage, monitoringPage, schoolsPage, usersPage, reportsPage, auditPage } from "./admin.js";
-import { cmsPage } from "./cms.js";
-import { categoryPage, publicCategoryHtml } from "./category.js";
-import { installUx, afterNavigate } from "./ux.js";
-import { privacyPage, guidePage } from "./info.js";
+import { PREVIEW_MODE, CLOUD, CONFIG } from "./config.js?v=202611230828";
+import { icon } from "./icons.js?v=202611230828";
+import { db, passwordProblem } from "./store.js?v=202611230828";
+import { esc, toast, modal, attachStrength } from "./ui.js?v=202611230828";
+import { shell, bindShell, LOGO } from "./shell.js?v=202611230828";
+import { homeHtml, bindHome } from "./home.js?v=202611230828";
+import { projectsPage, projectDetail, repositoryPage, notificationsPage, calendarPage, settingsPage, helpPage } from "./pages.js?v=202611230828";
+import { profilePage } from "./profile.js?v=202611230828";
+import { schoolDirectory, schoolPage, publicSchoolHtml } from "./school.js?v=202611230828";
+import { teacherDashboard, wizardPage } from "./teacher.js?v=202611230828";
+import { adminDashboard, analyticsPage, queuePage, evaluationPage, workflowPage, monitoringPage, schoolsPage, usersPage, reportsPage, auditPage } from "./admin.js?v=202611230828";
+import { cmsPage } from "./cms.js?v=202611230828";
+import { categoryPage, publicCategoryHtml } from "./category.js?v=202611230828";
+import { installUx, afterNavigate } from "./ux.js?v=202611230828";
+import { privacyPage, guidePage } from "./info.js?v=202611230828";
 
 const app = document.getElementById("app");
 if (window.__rd360Framed) throw new Error("RESEARCH DASHBOARD 360 cannot be shown inside another website.");

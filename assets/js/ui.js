@@ -1,6 +1,6 @@
 // Shared UI helpers: escaping, formatting, toasts, modals, charts, badges.
-import { icon } from "./icons.js";
-import { STATUSES, catById, progressOf, isOverdue, passwordScore, passwordProblem } from "./store.js";
+import { icon } from "./icons.js?v=202611230828";
+import { STATUSES, catById, progressOf, isOverdue, passwordScore, passwordProblem } from "./store.js?v=202611230828";
 
 export const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 export const fmtDate = (d) => (d ? new Date(d).toLocaleDateString("en-PH", { year: "numeric", month: "short", day: "numeric" }) : "—");

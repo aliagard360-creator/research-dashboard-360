@@ -1,8 +1,8 @@
 // Public home page, rendered from the published CMS content (or the draft, in preview).
-import { icon } from "./icons.js";
-import { db, CATEGORIES, STAGES, CONTENT_TYPES, catById } from "./store.js";
-import { esc, fmtDate } from "./ui.js";
-import { LOGO } from "./shell.js";
+import { icon } from "./icons.js?v=202611230828";
+import { db, CATEGORIES, STAGES, CONTENT_TYPES, catById } from "./store.js?v=202611230828";
+import { esc, fmtDate } from "./ui.js?v=202611230828";
+import { LOGO } from "./shell.js?v=202611230828";
 
 /* ---------- safety helpers for admin-entered content ---------- */
 export const safeImg = (src) => (typeof src === "string" && (/^data:image\/(png|jpe?g|webp|gif);base64,/.test(src) || /^https:\/\//.test(src)) ? src : "");
@@ -107,6 +107,10 @@ export function homeHtml(user, content, { preview = false } = {}) {
       ${[["school", db.schools().filter((s) => s.active).length, "Public schools in the district"], ["folder", stats.total, "Research projects submitted"], ["check_clip", stats.completed, "Completed studies"], ["layers", CATEGORIES.length, "Research categories"]].map(([ic, n, l]) => `<div class="ss-item"><span class="ss-ic">${icon(ic === "layers" ? "grid" : ic)}</span><b data-count="${n}">0</b><span>${l}</span></div>`).join("")}
     </div></div></section>
     <section class="marquee" aria-label="Schools of the district"><div class="mq-track">${[0, 1].map((k) => `<div class="mq-set" ${k ? 'aria-hidden="true"' : ""}>${db.schools().filter((s) => s.active).map((s) => `<a href="#/school/${s.id}" class="mq-chip" ${k ? 'tabindex="-1"' : ""}>${icon(s.type === "Elementary" ? "grad" : "school")}${esc(s.name)}</a>`).join("")}</div>`).join("")}</div></section>
+    <section class="section reveal" id="video-guide"><div class="wrap"><div class="home-video">
+      <div class="hv-text"><span class="pf-kicker">Video guide · 1 minute</span><h2>From your research idea to your Research ID</h2><p>Follow a teacher as she registers, gets approved, submits her action research and tracks it on RESEARCH DASHBOARD 360. Captions are available.</p><a class="btn btn-ghost" href="#/guide">${icon("help")}Read the full User Guide</a></div>
+      <video controls playsinline preload="none" poster="assets/video/rd360-guide-poster.jpg" aria-label="Video guide for teachers"><source src="assets/video/rd360-guide.mp4" type="video/mp4"><track kind="captions" srclang="en" label="English" src="assets/video/rd360-guide.en.vtt" default>Your browser can't play this video.</video>
+    </div></div></section>
     ${rendered.map((s) => `<section class="section reveal" id="sec-${s.key}"><div class="wrap"><div class="section-head"><div><h2>${esc(s.title)}</h2></div></div>${s.html}</div></section>`).join("")}
 
     <section class="section reveal"><div class="wrap"><div class="section-head"><div><h2>How it works</h2><p>Four steps from an idea in your classroom to a study the whole district can learn from.</p></div></div>

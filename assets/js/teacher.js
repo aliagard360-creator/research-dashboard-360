@@ -1,9 +1,9 @@
 // Teacher / Researcher portal: dashboard and the six-step submission wizard.
-import { icon } from "./icons.js";
-import { db, CATEGORIES, catById, RESEARCH_TYPES, AGENDA, FUNDING, isOverdue, nextAction, TERMINAL } from "./store.js";
-import { PREVIEW_MODE } from "./config.js";
-import { esc, fmtDate, fmtDateTime, relTime, toast, modal, emptyState, debounce, daysLeft, statusBadge } from "./ui.js";
-import { FILTERS, matchStatus, projectCard } from "./pages.js";
+import { icon } from "./icons.js?v=202611230828";
+import { db, CATEGORIES, catById, RESEARCH_TYPES, AGENDA, FUNDING, isOverdue, nextAction, TERMINAL } from "./store.js?v=202611230828";
+import { PREVIEW_MODE } from "./config.js?v=202611230828";
+import { esc, fmtDate, fmtDateTime, relTime, toast, modal, emptyState, debounce, daysLeft, statusBadge } from "./ui.js?v=202611230828";
+import { FILTERS, matchStatus, projectCard } from "./pages.js?v=202611230828";
 
 /* ======================= dashboard ======================= */
 export function teacherDashboard(user) {

@@ -1,9 +1,9 @@
 // Pages shared by both portals: project lists, project detail, repository,
 // notifications, calendar, profile, settings and help.
-import { icon } from "./icons.js";
-import { db, CATEGORIES, catById, STAGES, STATUSES, ADMIN_TRANSITIONS, TERMINAL, AGENDA, ROLES, isOverdue, nextAction, progressOf } from "./store.js";
-import { PREVIEW_MODE } from "./config.js";
-import { esc, fmtDate, fmtDateTime, relTime, statusBadge, catBadge, progressBar, deadlineCell, toast, modal, emptyState, avatar, debounce, attachStrength } from "./ui.js";
+import { icon } from "./icons.js?v=202611230828";
+import { db, CATEGORIES, catById, STAGES, STATUSES, ADMIN_TRANSITIONS, TERMINAL, AGENDA, ROLES, isOverdue, nextAction, progressOf } from "./store.js?v=202611230828";
+import { PREVIEW_MODE } from "./config.js?v=202611230828";
+import { esc, fmtDate, fmtDateTime, relTime, statusBadge, catBadge, progressBar, deadlineCell, toast, modal, emptyState, avatar, debounce, attachStrength } from "./ui.js?v=202611230828";
 
 export const FILTERS = {
   draft: { label: "Drafts", list: ["Draft"] },

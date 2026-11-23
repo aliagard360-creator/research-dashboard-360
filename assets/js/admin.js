@@ -1,8 +1,8 @@
 // Administrator portal pages.
-import { icon } from "./icons.js";
-import { db, CATEGORIES, catById, STAGES, STATUSES, ADMIN_TRANSITIONS, TERMINAL, ROLES, isOverdue, nextAction } from "./store.js";
-import { esc, fmtDate, fmtDateTime, relTime, statusBadge, catBadge, progressBar, deadlineCell, toast, modal, emptyState, hbar, donut, trend, downloadCSV } from "./ui.js";
-import { FILTERS, matchStatus, doTransition, projectsPage } from "./pages.js";
+import { icon } from "./icons.js?v=202611230828";
+import { db, CATEGORIES, catById, STAGES, STATUSES, ADMIN_TRANSITIONS, TERMINAL, ROLES, isOverdue, nextAction } from "./store.js?v=202611230828";
+import { esc, fmtDate, fmtDateTime, relTime, statusBadge, catBadge, progressBar, deadlineCell, toast, modal, emptyState, hbar, donut, trend, downloadCSV } from "./ui.js?v=202611230828";
+import { FILTERS, matchStatus, doTransition, projectsPage } from "./pages.js?v=202611230828";
 
 const fire = () => window.dispatchEvent(new Event("rd360:render"));
 const refreshed = () => `<p class="chart-meta">Computed from ${db.projects().filter((p) => p.status !== "Draft").length} submitted records · refreshed ${fmtDateTime(new Date())}</p>`;

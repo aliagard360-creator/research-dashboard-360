@@ -1,7 +1,7 @@
 // Data layer. Local mode keeps everything in this browser's localStorage.
 // Connected mode (config.js filled in) keeps the same records in Supabase through cloud.js.
-import { CONFIG, CLOUD } from "./config.js";
-import { cloud } from "./cloud.js";
+import { CONFIG, CLOUD } from "./config.js?v=202611230828";
+import { cloud } from "./cloud.js?v=202611230828";
 
 export const CATEGORIES = [
   { id: "AR", name: "Action Research", short: "Action Research", color: "#D93636", icon: "flask",

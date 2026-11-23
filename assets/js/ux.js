@@ -1,6 +1,6 @@
 // App-wide usability helpers: keyboard shortcuts, focus on navigation, offline notice, back-to-top.
-import { icon } from "./icons.js";
-import { modal } from "./ui.js";
+import { icon } from "./icons.js?v=202611230828";
+import { modal } from "./ui.js?v=202611230828";
 
 const typing = (el) => el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
 

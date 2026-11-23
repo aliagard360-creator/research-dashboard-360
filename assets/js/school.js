@@ -1,9 +1,9 @@
 // School directory and one page per school. Public visitors see only public information;
 // signed-in users see more, limited by role (admins: everything; teachers: their own school's people).
-import { icon } from "./icons.js";
-import { db, CATEGORIES, catById } from "./store.js";
-import { esc, fmtDate, avatar, statusBadge, catBadge } from "./ui.js";
-import { LOGO } from "./shell.js";
+import { icon } from "./icons.js?v=202611230828";
+import { db, CATEGORIES, catById } from "./store.js?v=202611230828";
+import { esc, fmtDate, avatar, statusBadge, catBadge } from "./ui.js?v=202611230828";
+import { LOGO } from "./shell.js?v=202611230828";
 
 const DONE = ["Completed", "Published", "Archived"];
 const base = (portal) => (portal ? `#/${portal}` : "#");

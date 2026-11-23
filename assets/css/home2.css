@@ -111,3 +111,11 @@
   .mq-track { flex-wrap: wrap; width: auto; }
   .mq-set[aria-hidden] { display: none; }
 }
+
+/* ---------- home video guide ---------- */
+.home-video { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(18px, 3vw, 36px); align-items: center; background: var(--surface); border-radius: var(--r-lg); padding: clamp(18px, 3vw, 32px); box-shadow: var(--shadow); border: 1px solid color-mix(in srgb, var(--border) 60%, transparent); }
+.hv-text { display: grid; gap: 12px; justify-items: start; }
+.hv-text h2 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.2rem); }
+.hv-text p { color: var(--muted); }
+.home-video video { width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; background: #14301e; display: block; box-shadow: var(--shadow-lg); }
+@media (max-width: 860px) { .home-video { grid-template-columns: 1fr; } }

@@ -1,7 +1,7 @@
 // Public information pages: Data Privacy Notice (#/privacy) and the Teacher User Guide (#/guide).
-import { icon } from "./icons.js";
-import { esc } from "./ui.js";
-import { CONFIG } from "./config.js";
+import { icon } from "./icons.js?v=202611230828";
+import { esc } from "./ui.js?v=202611230828";
+import { CONFIG } from "./config.js?v=202611230828";
 
 const UPDATED = "November 21, 2026";
 const OFFICE = "District Research Office, Schools District of Aliaga";
