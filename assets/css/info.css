@@ -68,3 +68,9 @@
 }
 .info-cta-ghost { background: transparent !important; color: #fff !important; border: 1px solid rgba(255, 255, 255, .45) !important; }
 .info-cta-ghost:hover { background: rgba(255, 255, 255, .12) !important; }
+.info-video { display: grid; gap: 14px; }
+.info-video-head { display: flex; gap: 14px; align-items: center; }
+.info-video-head .info-ic { width: 48px; height: 48px; border-radius: 14px; }
+.info-video-head .info-ic svg { width: 24px; height: 24px; }
+.info-video h2 { font-size: 20px; }
+.info-video video { width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; background: #14301e; display: block; }

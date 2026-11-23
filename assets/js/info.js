@@ -83,6 +83,8 @@ export function guidePage(user) {
   const html = `<div class="info">
     ${hero("For teachers and researchers", "User Guide", "Everything you need to register, submit your research and follow it until it is completed. It takes about 10 minutes to read.", "help")}
     <div class="info-quick">${[["user", "Register", "start"], ["check", "Get approved", "approval"], ["send", "Submit research", "submit"], ["activity", "Track it", "track"]].map(([ic, t, id], i) => `<a href="#" data-goto="${id}" class="info-q"><span>${i + 1}</span>${icon(ic)}<b>${t}</b></a>`).join("")}</div>
+    <section class="info-video card"><div class="info-video-head"><span class="info-ic" style="background:var(--mint);color:var(--green)">${icon("play")}</span><div><h2>Watch the video guide</h2><p class="muted">One minute: from your research idea to your Research ID. Captions are available.</p></div></div>
+      <video controls playsinline preload="none" poster="assets/video/rd360-guide-poster.jpg"><source src="assets/video/rd360-guide.mp4" type="video/mp4"><track kind="captions" srclang="en" label="English" src="assets/video/rd360-guide.en.vtt" default>Your browser can't play this video.</video></section>
     <div class="info-layout">${toc(parts)}<div class="info-body">
     ${sec("start", 1, "Create your account", steps([
       `On the home page, click <b>Create an account</b>.`,
@@ -108,7 +110,7 @@ export function guidePage(user) {
       <div class="info-wizard">${[["Project identity", "Category, title, school year and co-researchers."], ["Research details", "Background, problem and objectives."], ["Methodology", "Design, participants, data gathering and ethics."], ["Classification", "Research agenda and funding."], ["Attachments", "Your proposal file (PDF or Word, up to 10 MB)."], ["Review and submit", "A checklist shows anything still missing."]].map(([t, d], i) => `<div><span>${i + 1}</span><b>${t}</b><small>${d}</small></div>`).join("")}</div>
       <p>Choose the right <b>category</b>:</p>
       <div class="info-cats"><span style="--c:#D93636"><b>Action Research</b>Studies that solve classroom or school problems.</span><span style="--c:#249653"><b>Income Generating Project</b>School-based projects that raise resources.</span><span style="--c:#3478D4"><b>Innovation</b>New strategies, tools or programs.</span></div>
-      <p>When you click <b>Submit</b>, you receive a <b>Research ID</b> (for example <span class="mono">RD360-2026-0001</span>). Keep it; it identifies your study in every report.</p>` +
+      <p>On the last step, tick the <b>declaration</b> that your proposal is original and that you have the needed consent; the <b>Submit research</b> button turns on. When you submit, you receive a <b>Research ID</b> (for example <span class="mono">RD360-2026-0001</span>). Keep it; it identifies your study in every report.</p>` +
       tip(`After submitting, you can't edit the study unless it is returned to you for revision. Check the Review step carefully.`))}
     ${sec("track", 6, "Track your research", `<p>Open <b>My Research</b> to see each study's status, progress bar and next step. You also get a <b>notification</b> (bell icon) whenever something changes.</p>
       <div class="info-flow">${["Submitted", "Initial screening", "Technical review", "Approval", "Implementation", "Final evaluation", "Completed"].map((s) => `<span>${esc(s)}</span>`).join(icon("chevron"))}</div>`)}
