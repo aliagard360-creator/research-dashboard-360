@@ -1,9 +1,9 @@
 // Pages shared by both portals: project lists, project detail, repository,
 // notifications, calendar, profile, settings and help.
-import { icon } from "./icons.js?v=202611230828";
-import { db, CATEGORIES, catById, STAGES, STATUSES, ADMIN_TRANSITIONS, TERMINAL, AGENDA, ROLES, isOverdue, nextAction, progressOf } from "./store.js?v=202611230828";
-import { PREVIEW_MODE } from "./config.js?v=202611230828";
-import { esc, fmtDate, fmtDateTime, relTime, statusBadge, catBadge, progressBar, deadlineCell, toast, modal, emptyState, avatar, debounce, attachStrength } from "./ui.js?v=202611230828";
+import { icon } from "./icons.js?v=202611231438";
+import { db, CATEGORIES, catById, STAGES, STATUSES, ADMIN_TRANSITIONS, TERMINAL, AGENDA, ROLES, isOverdue, nextAction, progressOf } from "./store.js?v=202611231438";
+import { PREVIEW_MODE } from "./config.js?v=202611231438";
+import { esc, fmtDate, fmtDateTime, relTime, statusBadge, catBadge, progressBar, deadlineCell, toast, modal, emptyState, avatar, debounce, attachStrength } from "./ui.js?v=202611231438";
 
 export const FILTERS = {
   draft: { label: "Drafts", list: ["Draft"] },
@@ -256,9 +256,10 @@ export async function doTransition(user, p, to) {
   const fields = [{ name: "reason", label: "Reason / basis for this decision", type: "textarea", required: true }];
   if (needsFeedback) fields.push({ name: "feedback", label: "Revision items for the researcher", type: "textarea", required: true, hint: "Visible to the researcher." });
   else fields.push({ name: "feedback", label: "Feedback to release to the researcher (optional)", type: "textarea" });
+  if (!PREVIEW_MODE) fields.push({ name: "email", label: `Email ${db.user(p.owner_id)?.name || "the researcher"} about this update (with the feedback above, not the reason)`, type: "checkbox", value: true, span: true });
   const r = await modal({ title: `Move to "${to}"?`, body: `${esc(p.research_id)} · ${esc(p.title)}<br>Current status: ${esc(p.status)}. This action is recorded in the audit log.`, fields, confirm: `Confirm: ${to}`, danger: to === "Rejected" });
   if (!r) return;
-  try { db.transition(user, p.id, to, r.reason, r.feedback); toast(`${p.research_id} moved to ${to}.`); window.dispatchEvent(new Event("rd360:render")); }
+  try { db.transition(user, p.id, to, r.reason, r.feedback, r.email !== false); toast(`${p.research_id} moved to ${to}.${!PREVIEW_MODE && r.email ? " The researcher will get an email." : ""}`); window.dispatchEvent(new Event("rd360:render")); }
   catch (e) { toast(e.message, "err"); }
 }
 

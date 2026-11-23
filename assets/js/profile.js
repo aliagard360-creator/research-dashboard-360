@@ -1,8 +1,8 @@
 // "My Profile" as a bento dashboard: big photo card, headline numbers, activity chart,
 // completeness ring, getting-started checklist, project list and the editable details.
-import { icon } from "./icons.js?v=202611230828";
-import { db, ROLES, catById, TERMINAL, isOverdue } from "./store.js?v=202611230828";
-import { esc, fmtDate, fmtDateTime, relTime, statusBadge, toast, initials } from "./ui.js?v=202611230828";
+import { icon } from "./icons.js?v=202611231438";
+import { db, ROLES, catById, TERMINAL, isOverdue } from "./store.js?v=202611231438";
+import { esc, fmtDate, fmtDateTime, relTime, statusBadge, toast, initials } from "./ui.js?v=202611231438";
 
 const rerender = () => window.dispatchEvent(new Event("rd360:render"));
 const DONE = ["Completed", "Published", "Archived"];

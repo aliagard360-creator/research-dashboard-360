@@ -1,7 +1,7 @@
 // Data layer. Local mode keeps everything in this browser's localStorage.
 // Connected mode (config.js filled in) keeps the same records in Supabase through cloud.js.
-import { CONFIG, CLOUD } from "./config.js?v=202611230828";
-import { cloud } from "./cloud.js?v=202611230828";
+import { CONFIG, CLOUD } from "./config.js?v=202611231438";
+import { cloud } from "./cloud.js?v=202611231438";
 
 export const CATEGORIES = [
   { id: "AR", name: "Action Research", short: "Action Research", color: "#D93636", icon: "flask",
@@ -759,7 +759,7 @@ export const db = {
     s.projects = s.projects.filter((x) => x.id !== id);
     persist();
   },
-  transition(admin, id, to, reason, feedbackText) {
+  transition(admin, id, to, reason, feedbackText, emailTeacher = true) {
     if (!["admin", "superadmin"].includes(admin.role)) throw new Error("Not authorized.");
     const p = load().projects.find((x) => x.id === id);
     if (!p) throw new Error("Project not found.");
@@ -767,6 +767,7 @@ export const db = {
     if (!(ADMIN_TRANSITIONS[p.status] || []).includes(to)) throw new Error(`Cannot move from ${p.status} to ${to}.`);
     const from = p.status;
     p.status = to; p.updated_at = now();
+    p.email_teacher = !!emailTeacher; // read by the database when it queues the email (supabase/email-updates.sql)
     p.deadline = STAGE_DAYS[to] ? daysFrom(now(), STAGE_DAYS[to]) : null;
     p.history.push({ at: now(), actor: admin.id, action: `Moved to ${to}`, from, to, note: reason });
     if (feedbackText) p.feedback.push({ at: now(), by: admin.id, text: feedbackText });

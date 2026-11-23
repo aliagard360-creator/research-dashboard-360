@@ -1,0 +1,20 @@
+# Retries research-update emails that could not be sent right away (for example, if Gmail was busy).
+# Uses the same two repository secrets as keepalive.yml: SUPABASE_URL and SUPABASE_ANON_KEY (both public values).
+name: Send waiting emails
+on:
+  schedule:
+    - cron: "41 * * * *"   # every hour
+  workflow_dispatch:
+permissions: {}
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ask the send-emails function to send anything still waiting
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$URL" ] || [ -z "$KEY" ]; then echo "Secrets not set yet; skipping."; exit 0; fi
+          curl -s -X POST "$URL/functions/v1/send-emails" -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" -d '{}' || true
+          echo

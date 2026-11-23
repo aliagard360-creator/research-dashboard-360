@@ -59,6 +59,31 @@ for a whole district registering. To send from the district Gmail instead (free,
    - Host `smtp.gmail.com`, Port `465`, Username `aliagard360@gmail.com`, Password: the app password
    - Sender email `aliagard360@gmail.com`, Sender name `RESEARCH DASHBOARD 360`
 
+## Part 4B: Research update emails to teachers (only an admin's decision sends one)
+
+When an administrator moves a teacher's research to a new stage, the teacher gets an email with the new
+status, any feedback the admin released, and a button to open the study. Teachers, evaluators and visitors
+cannot send these emails. The admin can untick **"Email ... about this update"** in the confirm box to skip one.
+The admin's private "Reason / basis" is never emailed.
+
+You do this once (about 10 minutes). Use the same Gmail **app password** from Part 4.
+
+1. **Run the email SQL.** Supabase → **SQL Editor** → New query → paste all of
+   `supabase/email-updates.sql` → **Run**. It should say *Success*.
+2. **Create the sender function.** Supabase → **Edge Functions** → **Deploy a new function** →
+   **Via Editor**. Name it exactly `send-emails`. Delete the sample code, paste all of
+   `supabase/functions/send-emails/index.ts`, then click **Deploy function**.
+3. **Give it the Gmail login.** Supabase → **Edge Functions** → **Secrets** → add two secrets:
+   - `GMAIL_USER` = `aliagard360@gmail.com`
+   - `GMAIL_APP_PASSWORD` = the 16-letter app password (no spaces)
+4. **Test it.** Sign in as an admin, open a test study by a test teacher, move it to the next stage
+   with "Email ..." ticked. The teacher's inbox should get the email within a minute (check Spam the
+   first time and mark it "Not spam").
+
+If an email can't be sent right away, it waits and is retried every hour (GitHub workflow
+"Send waiting emails") up to 5 times. Admins can see each email and any error in Supabase →
+**Table Editor → email_outbox**. Gmail allows about 500 emails a day, which is plenty.
+
 ## Part 5: First sign-in (you)
 
 1. Open the website → **First-time setup**. The email is fixed to aliagard360@gmail.com.

@@ -1,10 +1,10 @@
 // Immersive, interactive page for each research category (Action Research, IGP, Innovation).
 // Shown publicly at #/category/<ID> and inside the portals at #/t/category/<ID> and #/a/category/<ID>.
-import { icon } from "./icons.js?v=202611230828";
-import { db, CATEGORIES, catById, isOverdue } from "./store.js?v=202611230828";
-import { esc, fmtDate, toast } from "./ui.js?v=202611230828";
-import { LOGO } from "./shell.js?v=202611230828";
-import { projectCard } from "./pages.js?v=202611230828";
+import { icon } from "./icons.js?v=202611231438";
+import { db, CATEGORIES, catById, isOverdue } from "./store.js?v=202611231438";
+import { esc, fmtDate, toast } from "./ui.js?v=202611231438";
+import { LOGO } from "./shell.js?v=202611231438";
+import { projectCard } from "./pages.js?v=202611231438";
 
 /* ---------- content for each category ---------- */
 export const CAT_CONTENT = {

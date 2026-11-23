@@ -1,7 +1,7 @@
 // Public information pages: Data Privacy Notice (#/privacy) and the Teacher User Guide (#/guide).
-import { icon } from "./icons.js?v=202611230828";
-import { esc } from "./ui.js?v=202611230828";
-import { CONFIG } from "./config.js?v=202611230828";
+import { icon } from "./icons.js?v=202611231438";
+import { esc } from "./ui.js?v=202611231438";
+import { CONFIG } from "./config.js?v=202611231438";
 
 const UPDATED = "November 21, 2026";
 const OFFICE = "District Research Office, Schools District of Aliaga";
@@ -44,7 +44,7 @@ export function privacyPage() {
       <div><b>${icon("school")}Other teachers</b><span>Your name, school and completed research shared within the district. Never your drafts or research under review.</span></div>
       <div><b>${icon("globe")}The public</b><span>Only completed studies an administrator marks <b>Public</b>: title, abstract, author, school and year. Never your email or files.</span></div>
     </div><p>We do not sell, rent or share your personal information with anyone outside DepEd, except when the law requires it.</p>`)}
-    ${sec("where", 5, "Where it is stored", `<p>Your information is stored in a secured database run by <b>Supabase</b>, on servers in <b>Singapore</b>. The website itself is published through <b>GitHub Pages</b>, which holds only the website's program files and no personal information. Both services are bound by their own security and privacy commitments.</p>`)}
+    ${sec("where", 5, "Where it is stored", `<p>Your information is stored in a secured database run by <b>Supabase</b>, on servers in <b>Singapore</b>. The website itself is published through <b>GitHub Pages</b>, which holds only the website's program files and no personal information. Research update emails are sent from the district's Gmail account (<b>Google</b>), with only your name, email address, research title, Research ID, status and released feedback. Both services are bound by their own security and privacy commitments.</p>`)}
     ${sec("keep", 6, "How long we keep it", `<ul class="info-list">
       <li><b>Accounts</b> stay while you are an active member of the district. If you transfer, retire or ask us to close your account, it is deactivated.</li>
       <li><b>Completed research</b> is kept as part of the district's research records, following DepEd records rules, because it forms part of the district's knowledge base.</li>
@@ -112,7 +112,7 @@ export function guidePage(user) {
       <div class="info-cats"><span style="--c:#D93636"><b>Action Research</b>Studies that solve classroom or school problems.</span><span style="--c:#249653"><b>Income Generating Project</b>School-based projects that raise resources.</span><span style="--c:#3478D4"><b>Innovation</b>New strategies, tools or programs.</span></div>
       <p>On the last step, tick the <b>declaration</b> that your proposal is original and that you have the needed consent; the <b>Submit research</b> button turns on. When you submit, you receive a <b>Research ID</b> (for example <span class="mono">RD360-2026-0001</span>). Keep it; it identifies your study in every report.</p>` +
       tip(`After submitting, you can't edit the study unless it is returned to you for revision. Check the Review step carefully.`))}
-    ${sec("track", 6, "Track your research", `<p>Open <b>My Research</b> to see each study's status, progress bar and next step. You also get a <b>notification</b> (bell icon) whenever something changes.</p>
+    ${sec("track", 6, "Track your research", `<p>Open <b>My Research</b> to see each study's status, progress bar and next step. You also get a <b>notification</b> (bell icon) whenever something changes. When the District Research Office moves your study to a new stage, you also get an <b>email</b> with the new status, any feedback, and a link to open your study.</p>
       <div class="info-flow">${["Submitted", "Initial screening", "Technical review", "Approval", "Implementation", "Final evaluation", "Completed"].map((s) => `<span>${esc(s)}</span>`).join(icon("chevron"))}</div>`)}
     ${sec("revise", 7, "Answer a revision", steps([
       `If your study is <b>Returned for Revision</b>, open it and read the reviewer's feedback.`,

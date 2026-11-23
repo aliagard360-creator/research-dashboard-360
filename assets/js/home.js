@@ -1,8 +1,8 @@
 // Public home page, rendered from the published CMS content (or the draft, in preview).
-import { icon } from "./icons.js?v=202611230828";
-import { db, CATEGORIES, STAGES, CONTENT_TYPES, catById } from "./store.js?v=202611230828";
-import { esc, fmtDate } from "./ui.js?v=202611230828";
-import { LOGO } from "./shell.js?v=202611230828";
+import { icon } from "./icons.js?v=202611231438";
+import { db, CATEGORIES, STAGES, CONTENT_TYPES, catById } from "./store.js?v=202611231438";
+import { esc, fmtDate } from "./ui.js?v=202611231438";
+import { LOGO } from "./shell.js?v=202611231438";
 
 /* ---------- safety helpers for admin-entered content ---------- */
 export const safeImg = (src) => (typeof src === "string" && (/^data:image\/(png|jpe?g|webp|gif);base64,/.test(src) || /^https:\/\//.test(src)) ? src : "");

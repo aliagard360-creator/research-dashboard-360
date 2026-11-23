@@ -20,3 +20,4 @@ Thumbs.db
 
 # The database script holds rules only, no data; keep it with the code.
 !supabase/schema.sql
+!supabase/email-updates.sql

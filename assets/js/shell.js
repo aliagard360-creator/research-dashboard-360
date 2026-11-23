@@ -1,8 +1,8 @@
 // Application shell: sidebar, top bar with breadcrumbs, mobile bottom navigation,
 // notification drawer and profile menu.
-import { icon } from "./icons.js?v=202611230828";
-import { db, ROLES } from "./store.js?v=202611230828";
-import { esc, avatar, relTime } from "./ui.js?v=202611230828";
+import { icon } from "./icons.js?v=202611231438";
+import { db, ROLES } from "./store.js?v=202611231438";
+import { esc, avatar, relTime } from "./ui.js?v=202611231438";
 
 export const LOGO = "assets/img/aliaga-seal.png";
 
