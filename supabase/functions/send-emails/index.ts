@@ -67,10 +67,13 @@ Deno.serve(async () => {
     try {
       const m = compose(row);
       await tx.sendMail({ from: `"RESEARCH DASHBOARD 360" <${user}>`, to: row.to_email, subject: m.subject, text: m.text, html: m.html });
-      await sb.from("email_outbox").update({ sent_at: new Date().toISOString(), error: null }).eq("id", row.id);
+      const r = await sb.rpc("finish_email", { email_id: row.id, ok: true });
+      if (r.error) console.error("could not mark email sent", row.id, r.error.message);
       sent++;
     } catch (e) {
-      await sb.from("email_outbox").update({ error: String((e as Error)?.message ?? e).slice(0, 500), claimed_at: null }).eq("id", row.id);
+      const msg = String((e as Error)?.message ?? e);
+      console.error("email failed", row.id, msg);
+      await sb.rpc("finish_email", { email_id: row.id, ok: false, err: msg });
       failed++;
     }
   }

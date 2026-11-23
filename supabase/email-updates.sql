@@ -71,6 +71,22 @@ do $$ begin
   end if;
 end $$;
 
+-- the sender records the result (sent, or the error so it can retry); also server-only
+create or replace function public.finish_email(email_id bigint, ok boolean, err text default null) returns void
+language sql security definer set search_path = public as $$
+  update public.email_outbox
+  set sent_at = case when ok then now() else sent_at end,
+      error = case when ok then null else left(err, 500) end,
+      claimed_at = case when ok then claimed_at else null end
+  where id = email_id
+$$;
+revoke all on function public.finish_email(bigint, boolean, text) from public, anon, authenticated;
+do $$ begin
+  if exists (select 1 from pg_roles where rolname = 'service_role') then
+    grant execute on function public.finish_email(bigint, boolean, text) to service_role;
+  end if;
+end $$;
+
 -- ring the sender as soon as an email is waiting (needs the pg_net extension, which Supabase includes)
 do $$ begin
   create extension if not exists pg_net;
